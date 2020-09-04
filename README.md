@@ -21,7 +21,7 @@ Info:
 Gives insight on covid-19. How it spreads, precautions to be taken etc. 
 
 News:
-Shows new update of all related to health.
+Shows news update anything related to health based on location.
 
 Settings:
 Change setting related to app behavior.  
