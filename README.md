@@ -1,4 +1,11 @@
 # Covid19Global
+Developed May 12 2020 to May 26 2020
+
+REST 
+JSON 
+VIEWMODELS
+FRAGAMENTS
+
 
 Gain insights and Keep track of COVID-19 in your country, in your continent and the globe. Data is updated every 10 minutes.
 
