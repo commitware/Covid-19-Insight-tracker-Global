@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import commitware.ayia.covid19global.objects.Summary;
+import commitware.ayia.covid19global.model.Summary;
 import commitware.ayia.covid19global.service.json.ContinentDataRequest;
 import commitware.ayia.covid19global.service.json.CountryDataRequest;
 import commitware.ayia.covid19global.service.json.GlobeDataRequest;

@@ -21,8 +21,8 @@ import androidx.preference.PreferenceFragmentCompat;
 import commitware.ayia.covid19global.Controllers.AppController;
 
 import commitware.ayia.covid19global.interfaces.OnFragmentInteractionListener;
-import commitware.ayia.covid19global.objects.CountryLocal;
-import commitware.ayia.covid19global.objects.CountryServer;
+import commitware.ayia.covid19global.model.CountryLocal;
+import commitware.ayia.covid19global.model.CountryServer;
 import commitware.ayia.covid19global.R;
 
 import static commitware.ayia.covid19global.Utils.AppUtils.LIST_REQUEST;

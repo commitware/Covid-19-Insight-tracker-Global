@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import commitware.ayia.covid19global.R;
-import commitware.ayia.covid19global.objects.CountryServer;
+import commitware.ayia.covid19global.model.CountryServer;
 
 public class ListDetailFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match

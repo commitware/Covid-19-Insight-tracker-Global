@@ -14,8 +14,8 @@ import commitware.ayia.covid19global.R;
 import commitware.ayia.covid19global.fragments.ListActivityFragment;
 import commitware.ayia.covid19global.fragments.ListDetailFragment;
 import commitware.ayia.covid19global.interfaces.OnFragmentInteractionListener;
-import commitware.ayia.covid19global.objects.CountryLocal;
-import commitware.ayia.covid19global.objects.CountryServer;
+import commitware.ayia.covid19global.model.CountryLocal;
+import commitware.ayia.covid19global.model.CountryServer;
 
 import static commitware.ayia.covid19global.Utils.AppUtils.LIST_REQUEST;
 import static commitware.ayia.covid19global.Utils.AppUtils.LIST_TYPE;

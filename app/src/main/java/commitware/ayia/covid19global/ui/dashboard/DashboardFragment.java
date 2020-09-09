@@ -94,7 +94,6 @@ public class DashboardFragment extends Fragment  implements SwipeRefreshLayout.O
                 fab.setEnabled(false);
                 fab.setVisibility(View.INVISIBLE);
             } else {
-
                 fab.setEnabled(true);
                 fab.setVisibility(View.VISIBLE);
 

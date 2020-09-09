@@ -20,7 +20,7 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 
 import commitware.ayia.covid19global.Controllers.AppController;
-import commitware.ayia.covid19global.objects.Summary;
+import commitware.ayia.covid19global.model.Summary;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 import static commitware.ayia.covid19global.Utils.AppUtils.GLOBE_URL;

@@ -9,7 +9,7 @@ import androidx.appcompat.widget.Toolbar;
 import commitware.ayia.covid19global.R;
 import commitware.ayia.covid19global.fragments.NewsDetailFragment;
 import commitware.ayia.covid19global.interfaces.OnFragmentListenerNewsDetail;
-import commitware.ayia.covid19global.objects.News;
+import commitware.ayia.covid19global.model.News;
 
 public class NewsDetailsActivity extends AppCompatActivity implements OnFragmentListenerNewsDetail {
     public static final String PARCELABLE_PARSING_DATA = "parcelable_parsing_data" ;

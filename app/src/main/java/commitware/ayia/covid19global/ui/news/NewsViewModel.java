@@ -1,70 +1,58 @@
 package commitware.ayia.covid19global.ui.news;
 
+import android.app.Application;
+
 import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.MediatorLiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.SavedStateHandle;
+import androidx.lifecycle.Transformations;
 
 import java.util.List;
 
-import commitware.ayia.covid19global.BuildConfig;
-import commitware.ayia.covid19global.Controllers.AppController;
-import commitware.ayia.covid19global.Utils.AppUtils;
-import commitware.ayia.covid19global.objects.News;
-import commitware.ayia.covid19global.objects.NewsResponse;
-import commitware.ayia.covid19global.service.Retrofit.ApiNewsEndpoint;
-import commitware.ayia.covid19global.service.Retrofit.RetrofitServiceApi;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
+import commitware.ayia.covid19global.model.News;
+import commitware.ayia.covid19global.repositories.NewsRepository;
+import commitware.ayia.covid19global.service.Retrofit.RestApiResponse;
 
-public class NewsViewModel extends ViewModel {
+public class NewsViewModel extends AndroidViewModel {
 
+    private final MediatorLiveData<RestApiResponse> mObservableNews;
 
-    private final MutableLiveData<List<News>> liveData = new MutableLiveData<>();
+    private boolean isGetAll;
 
-    public void getNewsViewModel(boolean isGetAll) {
-        Retrofit retrofit = RetrofitServiceApi.getRetrofitServiceNews();
-        ApiNewsEndpoint endpoint = retrofit.create(ApiNewsEndpoint.class);
-        String code = AppController.getInstance().getCode();
-        Call<NewsResponse> call;
-        Response<NewsResponse> getResponse = null;
+    public NewsViewModel(@NonNull Application application) {
+        super(application);
 
-        if(isGetAll)
-        {
-            call = endpoint.getNews( code,"health", BuildConfig.API_NEWS);
-        }
-        else {
-            if(code.equals(""))
-            {
-                call = endpoint.getNewsAll(AppUtils.getLanguage(),"health", BuildConfig.API_NEWS);
-            }
-            else {
-                call = endpoint.getNews( code,"health", BuildConfig.API_NEWS);
-            }
-        }
+        NewsRepository mRepository = new NewsRepository(application);
 
+        mObservableNews = new MediatorLiveData<>();
 
-
-        call.enqueue(new Callback<NewsResponse>() {
+        mObservableNews.addSource(mRepository.getMutableLiveData(isGetAll()), new Observer<RestApiResponse>() {
             @Override
-            public void onResponse(@NonNull Call<NewsResponse> call, @NonNull Response<NewsResponse> response) {
-                if (response.body() != null && response.isSuccessful() && response.body().getArticles() != null) {
-                    liveData.setValue(response.body().getArticles());
-                }
+            public void onChanged(RestApiResponse restApiResponse) {
 
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<NewsResponse> call, Throwable t) {
+                mObservableNews.setValue(restApiResponse);
 
             }
         });
+        mRepository.getMutableLiveData(isGetAll());
+    }
+
+    public LiveData<RestApiResponse> getNewsData() {
+
+
+     return mObservableNews;
 
     }
 
-    public LiveData<List<News>> getNewsData() {
-        return liveData;
+    public boolean isGetAll() {
+        return isGetAll;
+    }
+
+    public void setGetAll(boolean getAll) {
+
+        isGetAll = getAll;
     }
 }

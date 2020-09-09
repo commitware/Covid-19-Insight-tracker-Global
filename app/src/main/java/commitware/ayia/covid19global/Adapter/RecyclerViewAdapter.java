@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import commitware.ayia.covid19global.R;
-import commitware.ayia.covid19global.objects.CountryServer;
+import commitware.ayia.covid19global.model.CountryServer;
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> implements Filterable {

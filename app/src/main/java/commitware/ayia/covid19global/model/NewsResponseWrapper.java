@@ -1,13 +1,12 @@
-package commitware.ayia.covid19global.objects;
+package commitware.ayia.covid19global.model;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class NewsResponse {
+public class NewsResponseWrapper {
 
     @SerializedName("status")
-
     private String status;
 
     @SerializedName("totalResult")
@@ -34,7 +33,7 @@ public class NewsResponse {
         this.totalResult = totalResult;
     }
 
-    public NewsResponse(List<News> articles) {
+    public NewsResponseWrapper(List<News> articles) {
         this.articles = articles;
     }
 

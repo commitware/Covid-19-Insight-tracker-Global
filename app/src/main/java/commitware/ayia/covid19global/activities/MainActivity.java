@@ -12,10 +12,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import commitware.ayia.covid19global.Controllers.AppController;
 import commitware.ayia.covid19global.R;
 import commitware.ayia.covid19global.interfaces.OnFragmentListener;
-import commitware.ayia.covid19global.objects.News;
+import commitware.ayia.covid19global.model.News;
 
 import static commitware.ayia.covid19global.Utils.AppUtils.LIST_INTENT;
 import static commitware.ayia.covid19global.Utils.AppUtils.LIST_REQUEST;

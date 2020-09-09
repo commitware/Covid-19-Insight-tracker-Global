@@ -20,7 +20,7 @@ import java.util.List;
 import commitware.ayia.covid19global.Adapter.SliderAdapter;
 import commitware.ayia.covid19global.R;
 import commitware.ayia.covid19global.interfaces.OnFragmentListenerSlider;
-import commitware.ayia.covid19global.objects.Slide;
+import commitware.ayia.covid19global.model.Slide;
 
 
 public class ShowInfoAsSliderFragment extends Fragment {

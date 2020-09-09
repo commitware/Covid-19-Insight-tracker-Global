@@ -2,6 +2,7 @@ package commitware.ayia.covid19global.ui.news;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +10,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -20,21 +26,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import commitware.ayia.covid19global.Adapter.RecyclerViewAdapterNews;
-import commitware.ayia.covid19global.BuildConfig;
-import commitware.ayia.covid19global.Controllers.AppController;
 import commitware.ayia.covid19global.R;
-import commitware.ayia.covid19global.Utils.AppUtils;
+import commitware.ayia.covid19global.activities.MainActivity;
 import commitware.ayia.covid19global.interfaces.OnFragmentListener;
 import commitware.ayia.covid19global.interfaces.RecyclerViewClickListener;
 import commitware.ayia.covid19global.listeners.RecyclerViewTouchListener;
-import commitware.ayia.covid19global.objects.News;
-import commitware.ayia.covid19global.objects.NewsResponse;
-import commitware.ayia.covid19global.service.Retrofit.ApiNewsEndpoint;
-import commitware.ayia.covid19global.service.Retrofit.RetrofitServiceApi;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
+import commitware.ayia.covid19global.model.News;
+import commitware.ayia.covid19global.service.Retrofit.RestApiResponse;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class FragmentNews extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
@@ -47,9 +47,10 @@ public class FragmentNews extends Fragment implements SwipeRefreshLayout.OnRefre
     private TextView errorTitle, errorMessage;
     private Button btnRetry;
     private List<News> articles = new ArrayList<>();
+    private NewsViewModel viewModel;
 
 
-    RecyclerView rv;
+    private RecyclerView rv;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
        // newsViewModel = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(NewsViewModel.class);
@@ -67,7 +68,17 @@ public class FragmentNews extends Fragment implements SwipeRefreshLayout.OnRefre
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         rv.setAdapter(adapter);
 
-        loadNewsData();
+
+
+        return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        viewModel = new ViewModelProvider(this).get(NewsViewModel.class);
+
         rv.addOnItemTouchListener(new RecyclerViewTouchListener(getActivity(), rv, new RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
@@ -79,29 +90,48 @@ public class FragmentNews extends Fragment implements SwipeRefreshLayout.OnRefre
 
             }
         }));
-        return root;
+
+        loadNewsData(viewModel.getNewsData());
+
+
     }
 
+    private void loadNewsData(LiveData<RestApiResponse> liveData) {
 
-   /* private void loadNewsData() {
+        errorLayout.setVisibility(View.GONE);
 
-        NewsViewModel viewModel = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(NewsViewModel.class);
-        viewModel.getNewsViewModel(false);
         refreshNews(true);
-        viewModel.getNewsData().observe(getViewLifecycleOwner(), newsModels -> {
-            if (newsModels == null) {
-                tvEmpty.setVisibility(View.VISIBLE);
-                refreshNews(false);
-            }
-            else  {
-              // Toast.makeText(getActivity(), "nulldww"+newsModels.size(), Toast.LENGTH_LONG).show();
-                if(newsModels.size()== 0)
-                {
-                    viewModel.getNewsViewModel(true);
+
+        liveData.observe(getViewLifecycleOwner(), new Observer<RestApiResponse>() {
+            @Override
+            public void onChanged(RestApiResponse apiResponse) {
+
+                if (apiResponse == null) {
+                    showErrorMessage(
+                            R.drawable.no_result,
+                            "No Result",
+                            "Retry\n");
+                    return;
                 }
-                else {
-                    adapter.setNews(newsModels);
+                if (apiResponse.getError() == null) {
+                    // call is successful
+                    Log.i(TAG, "Data response is " + apiResponse.getPosts());
+                    adapter.setNews(apiResponse.getPosts());
                     refreshNews(false);
+
+                } else {
+                    // call failed.
+                   // Throwable e = apiResponse.getError();
+                   // Toast.makeText(getActivity(), "Error is " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                   // Log.e(TAG, "Error is " + e.getLocalizedMessage());
+
+                    showErrorMessage(
+                            R.drawable.no_result,
+                            "Network Error",
+                            "Check Network\n");
+
+
+
                 }
 
             }
@@ -111,17 +141,14 @@ public class FragmentNews extends Fragment implements SwipeRefreshLayout.OnRefre
         swipe.setOnRefreshListener(this);
     }
 
-    */
-
-
-
+/*
     private void loadNewsData() {
         errorLayout.setVisibility(View.GONE);
         refreshNews(true);
-        Retrofit retrofit = RetrofitServiceApi.getRetrofitServiceNews();
-        ApiNewsEndpoint endpoint = retrofit.create(ApiNewsEndpoint.class);
+        Retrofit retrofit = RetrofitInstanceNews.getRetrofitServiceNews();
+        RestApiServiceNews endpoint = retrofit.create(RestApiServiceNews.class);
         String code = AppController.getInstance().getCode();
-        Call<NewsResponse> call;
+        Call<NewsResponseWrapper> call;
 
             if(code.equals(""))
             {
@@ -131,9 +158,9 @@ public class FragmentNews extends Fragment implements SwipeRefreshLayout.OnRefre
                 call = endpoint.getNews(code,"health", BuildConfig.API_NEWS);
             }
 
-        call.enqueue(new Callback<NewsResponse>() {
+        call.enqueue(new Callback<NewsResponseWrapper>() {
             @Override
-            public void onResponse(@NonNull Call<NewsResponse> call, @NonNull Response<NewsResponse> response) {
+            public void onResponse(@NonNull Call<NewsResponseWrapper> call, @NonNull Response<NewsResponseWrapper> response) {
                 if (response.body() != null && response.isSuccessful() && response.body().getArticles() != null) {
 
                     if (!articles.isEmpty()) {
@@ -170,7 +197,7 @@ public class FragmentNews extends Fragment implements SwipeRefreshLayout.OnRefre
             }
 
             @Override
-            public void onFailure(@NonNull Call<NewsResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<NewsResponseWrapper> call, Throwable t) {
                 refreshNews(false);
                 showErrorMessage(
                         R.drawable.oops,
@@ -182,8 +209,11 @@ public class FragmentNews extends Fragment implements SwipeRefreshLayout.OnRefre
         swipe.setOnRefreshListener(this);
 
     }
+*/
+
 
     private void refreshNews(boolean isRefresh) {
+
         if (isRefresh) {
             swipe.setRefreshing(true);
         } else {
@@ -197,10 +227,12 @@ public class FragmentNews extends Fragment implements SwipeRefreshLayout.OnRefre
     @Override
     public void onRefresh() {
 
-        loadNewsData();
+        loadNewsData(viewModel.getNewsData());
     }
 
     private void showErrorMessage(int imageView, String title, String message){
+
+        refreshNews(false);
 
         if (errorLayout.getVisibility() == View.GONE) {
             errorLayout.setVisibility(View.VISIBLE);
@@ -235,6 +267,7 @@ public class FragmentNews extends Fragment implements SwipeRefreshLayout.OnRefre
     public void onDetach() {
         super.onDetach();
         mListener = null;
+
     }
 
     // Now we can fire the event when the user selects something in the fragment

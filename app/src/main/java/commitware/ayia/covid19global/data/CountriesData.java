@@ -3,7 +3,7 @@ package commitware.ayia.covid19global.data;
 import java.util.ArrayList;
 import java.util.List;
 
-import commitware.ayia.covid19global.objects.CountryLocal;
+import commitware.ayia.covid19global.model.CountryLocal;
 
 public class CountriesData {
 

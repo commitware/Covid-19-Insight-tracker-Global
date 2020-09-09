@@ -21,7 +21,7 @@ import java.io.UnsupportedEncodingException;
 
 import commitware.ayia.covid19global.Controllers.AppUtilsController;
 import commitware.ayia.covid19global.Controllers.AppController;
-import commitware.ayia.covid19global.objects.Summary;
+import commitware.ayia.covid19global.model.Summary;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 

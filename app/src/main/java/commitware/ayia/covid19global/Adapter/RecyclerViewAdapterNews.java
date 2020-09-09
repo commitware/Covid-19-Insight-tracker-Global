@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import commitware.ayia.covid19global.R;
-import commitware.ayia.covid19global.objects.News;
+import commitware.ayia.covid19global.model.News;
 
 
 public class RecyclerViewAdapterNews extends RecyclerView.Adapter<RecyclerViewAdapterNews.ViewHolder>{

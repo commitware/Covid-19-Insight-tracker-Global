@@ -1,4 +1,4 @@
-package commitware.ayia.covid19global.objects;
+package commitware.ayia.covid19global.model;
 
 public class Slide {
     private String heading;

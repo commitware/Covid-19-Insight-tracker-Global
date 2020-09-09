@@ -15,7 +15,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import java.util.List;
 
 import commitware.ayia.covid19global.R;
-import commitware.ayia.covid19global.objects.Slide;
+import commitware.ayia.covid19global.model.Slide;
 
 public class SliderAdapter extends PagerAdapter {
 

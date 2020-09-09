@@ -46,8 +46,8 @@ import commitware.ayia.covid19global.data.CountriesData;
 import commitware.ayia.covid19global.interfaces.OnFragmentInteractionListener;
 import commitware.ayia.covid19global.interfaces.RecyclerViewClickListener;
 import commitware.ayia.covid19global.listeners.RecyclerViewTouchListener;
-import commitware.ayia.covid19global.objects.CountryLocal;
-import commitware.ayia.covid19global.objects.CountryServer;
+import commitware.ayia.covid19global.model.CountryLocal;
+import commitware.ayia.covid19global.model.CountryServer;
 
 import static commitware.ayia.covid19global.Utils.AppUtils.LIST_TYPE_LOCAL;
 import static commitware.ayia.covid19global.Utils.AppUtils.LIST_TYPE_SERVER;

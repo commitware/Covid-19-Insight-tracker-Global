@@ -1,8 +1,8 @@
 package commitware.ayia.covid19global.interfaces;
 
 
-import commitware.ayia.covid19global.objects.CountryLocal;
-import commitware.ayia.covid19global.objects.CountryServer;
+import commitware.ayia.covid19global.model.CountryLocal;
+import commitware.ayia.covid19global.model.CountryServer;
 
 public interface OnFragmentInteractionListener {
     void listItemClickServer(CountryServer countryServer);

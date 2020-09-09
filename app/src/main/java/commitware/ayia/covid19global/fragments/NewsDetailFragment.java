@@ -20,7 +20,7 @@ import com.bumptech.glide.Glide;
 import commitware.ayia.covid19global.R;
 import commitware.ayia.covid19global.Utils.AppUtils;
 import commitware.ayia.covid19global.interfaces.OnFragmentListenerNewsDetail;
-import commitware.ayia.covid19global.objects.News;
+import commitware.ayia.covid19global.model.News;
 
 
 public class NewsDetailFragment extends Fragment {
