@@ -18,7 +18,7 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 
 import commitware.ayia.covid19global.R;
-import commitware.ayia.covid19global.Utils.AppUtils;
+import commitware.ayia.covid19global.utils.AppUtils;
 import commitware.ayia.covid19global.interfaces.OnFragmentListenerNewsDetail;
 import commitware.ayia.covid19global.model.News;
 

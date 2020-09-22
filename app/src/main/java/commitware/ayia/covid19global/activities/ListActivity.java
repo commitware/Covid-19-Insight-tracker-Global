@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 
-import commitware.ayia.covid19global.Controllers.AppController;
+import commitware.ayia.covid19global.controllers.AppController;
 import commitware.ayia.covid19global.R;
 import commitware.ayia.covid19global.fragments.ListActivityFragment;
 import commitware.ayia.covid19global.fragments.ListDetailFragment;
@@ -17,10 +17,10 @@ import commitware.ayia.covid19global.interfaces.OnFragmentInteractionListener;
 import commitware.ayia.covid19global.model.CountryLocal;
 import commitware.ayia.covid19global.model.CountryServer;
 
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_REQUEST;
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_TYPE;
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_TYPE_LOCAL;
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_TYPE_SETUP;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_REQUEST;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_TYPE;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_TYPE_LOCAL;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_TYPE_SETUP;
 
 
 public class ListActivity extends AppCompatActivity implements OnFragmentInteractionListener {
@@ -86,20 +86,22 @@ public class ListActivity extends AppCompatActivity implements OnFragmentInterac
         String continent;
         String code;
 
-                countryName =  countryLocal.getName();
-                continent = countryLocal.getContinent();
-                code = countryLocal.getCode();
-                e.putString("countryLocal", countryName);
-                e.putString("continent",continent);
-                e.putString("code",code);
-                AppController.getInstance().setCountry(countryName);
-                AppController.getInstance().setContinent(continent);
-                AppController.getInstance().setCode(code);
+        countryName =  countryLocal.getName();
+        continent = countryLocal.getContinent();
+        code = countryLocal.getCode();
 
+        e.putString("country", countryName);
+        e.putString("continent",continent);
+        e.putString("code",code);
+
+        AppController.getInstance().setCountry(countryName);
+        AppController.getInstance().setContinent(continent);
+        AppController.getInstance().setCode(code);
 
 
         if(listType.equals(LIST_TYPE_SETUP))
-        {  e.putBoolean("firstStart",false);
+        {
+            e.putBoolean("firstStart",false);
             e.apply();
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             overridePendingTransition(R.anim.zoom_in, R.anim.zoom_out);
@@ -108,6 +110,7 @@ public class ListActivity extends AppCompatActivity implements OnFragmentInterac
         else if(listType.equals(LIST_TYPE_LOCAL)) {
             e.apply();
             startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             finish();
         }
     }

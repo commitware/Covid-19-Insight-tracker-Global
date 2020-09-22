@@ -1,4 +1,4 @@
-package commitware.ayia.covid19global.data;
+package commitware.ayia.covid19global.repositories;
 
 import java.util.ArrayList;
 import java.util.List;

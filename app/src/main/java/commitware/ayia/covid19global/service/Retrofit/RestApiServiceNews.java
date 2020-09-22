@@ -1,6 +1,6 @@
 package commitware.ayia.covid19global.service.Retrofit;
 
-import commitware.ayia.covid19global.Utils.AppUtils;
+import commitware.ayia.covid19global.utils.AppUtils;
 import commitware.ayia.covid19global.model.NewsResponseWrapper;
 import retrofit2.Call;
 import retrofit2.http.GET;

@@ -5,12 +5,9 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
-import java.util.List;
-
 import commitware.ayia.covid19global.BuildConfig;
-import commitware.ayia.covid19global.Controllers.AppController;
-import commitware.ayia.covid19global.Utils.AppUtils;
-import commitware.ayia.covid19global.model.News;
+import commitware.ayia.covid19global.controllers.AppController;
+import commitware.ayia.covid19global.utils.AppUtils;
 import commitware.ayia.covid19global.model.NewsResponseWrapper;
 import commitware.ayia.covid19global.service.Retrofit.RestApiResponse;
 import commitware.ayia.covid19global.service.Retrofit.RestApiServiceNews;

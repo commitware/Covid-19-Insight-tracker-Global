@@ -2,7 +2,7 @@ package commitware.ayia.covid19global.service.Retrofit;
 
 import java.util.concurrent.TimeUnit;
 
-import commitware.ayia.covid19global.Utils.AppUtils;
+import commitware.ayia.covid19global.utils.AppUtils;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

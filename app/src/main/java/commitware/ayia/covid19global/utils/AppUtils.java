@@ -1,4 +1,4 @@
-package commitware.ayia.covid19global.Utils;
+package commitware.ayia.covid19global.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -57,13 +57,13 @@ public class AppUtils {
 
     public static String getCountry(){
         Locale locale = Locale.getDefault();
-        String country = String.valueOf(locale.getCountry());
+        String country = locale.getCountry();
         return country.toLowerCase();
     }
 
     public static String getLanguage(){
         Locale locale = Locale.getDefault();
-        String country = String.valueOf(locale.getLanguage());
+        String country = locale.getLanguage();
         return country.toLowerCase();
     }
 

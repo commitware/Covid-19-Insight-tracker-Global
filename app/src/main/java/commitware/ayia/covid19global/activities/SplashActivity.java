@@ -8,13 +8,13 @@ import android.os.Bundle;
 import android.os.Handler;
 
 
-import commitware.ayia.covid19global.Controllers.AppController;
+import commitware.ayia.covid19global.controllers.AppController;
 import commitware.ayia.covid19global.R;
 
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_REQUEST;
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_TYPE;
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_TYPE_SETUP;
-import static commitware.ayia.covid19global.Utils.AppUtils.LOCATION_COUNTRY;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_REQUEST;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_TYPE;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_TYPE_SETUP;
+import static commitware.ayia.covid19global.utils.AppUtils.LOCATION_COUNTRY;
 
 
 public class SplashActivity extends AppCompatActivity {

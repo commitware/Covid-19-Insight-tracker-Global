@@ -1,14 +1,14 @@
-package commitware.ayia.covid19global.Controllers;
+package commitware.ayia.covid19global.controllers;
 
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
-import androidx.appcompat.app.AppCompatDelegate;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+
+import commitware.ayia.covid19global.utils.ThemeController;
 
 public class AppController extends Application {
 
@@ -17,52 +17,32 @@ public class AppController extends Application {
     private static AppController mInstance;
 
 
-    String id;
-    String state;
     String code;
     String continent;
     String country;
     String appType;
 
+    private boolean isFirstStart;
+
     @Override
     public void onCreate() {
         super.onCreate();
+
         mInstance = this;
 
         SharedPreferences getSharedPreferences = androidx.preference.PreferenceManager.getDefaultSharedPreferences(this);
-        boolean isFirstStart = getSharedPreferences.getBoolean("firstStart", true);
-        appType = getSharedPreferences.getString("appType", "covidGlobal");
 
+        setFirstStart(getSharedPreferences.getBoolean("firstStart", true));
 
+        setAppType(getSharedPreferences.getString("appType", "covidGlobal"));
 
-            if (isFirstStart)
-            {
-                SharedPreferences.Editor e = getSharedPreferences.edit();
-                e.putString("country", null);
-                e.putString("continent",null);
-                e.putString("code", null);
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        new ThemeController(getSharedPreferences.getString("theme", "FollowSystem"));
 
-                e.apply();
-            }
-            else {
-                String theme = getSharedPreferences.getString("theme", "LightTheme");
-                if(theme.equals("LightTheme"))
-                {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                }
-                else if(theme.equals("DarkTheme"))
-                {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                }
-            }
-            state = null;
-            id = null;
-            continent = getSharedPreferences.getString("continent", null);
-            country = getSharedPreferences.getString("country", null);
-            code = getSharedPreferences.getString("code", null);
+        setContinent(getSharedPreferences.getString("continent", null));
 
+        setCountry(getSharedPreferences.getString("country", null));
 
+        setCode(getSharedPreferences.getString("code", null));
 
     }
 
@@ -94,21 +74,12 @@ public class AppController extends Application {
         }
     }
 
-
-    public String getId() {
-        return id;
+    public boolean isFirstStart() {
+        return isFirstStart;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
+    public void setFirstStart(boolean firstStart) {
+        isFirstStart = firstStart;
     }
 
     public String getContinent() {
@@ -131,10 +102,6 @@ public class AppController extends Application {
         return appType;
     }
 
-    public void setAppType(String appType) {
-        this.appType = appType;
-    }
-
     public String getCode() {
         return code;
     }
@@ -142,4 +109,9 @@ public class AppController extends Application {
     public void setCode(String code) {
         this.code = code;
     }
+
+    public void setAppType(String appType) {
+        this.appType = appType;
+    }
+
 }

@@ -20,11 +20,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import commitware.ayia.covid19global.Controllers.AppController;
+import commitware.ayia.covid19global.controllers.AppController;
 import commitware.ayia.covid19global.R;
 import commitware.ayia.covid19global.interfaces.OnFragmentListener;
 
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_INTENT;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_INTENT;
 
 public class DashboardFragment extends Fragment  implements SwipeRefreshLayout.OnRefreshListener {
 
@@ -51,6 +51,7 @@ public class DashboardFragment extends Fragment  implements SwipeRefreshLayout.O
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, final Bundle savedInstanceState) {
+
         dashboardViewModel = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(DashboardViewModel.class);
 
 
@@ -164,18 +165,14 @@ public class DashboardFragment extends Fragment  implements SwipeRefreshLayout.O
 
     private void setText() {
         if ("globe".equals(locationDataRequest)) {
-
             String heading = "Global Cases";
             tvHeading.setText(heading);
         } else if ("country".equals(locationDataRequest)) {
             String heading = AppController.getInstance().getCountry() + " Cases";
             tvHeading.setText(heading);
 
-        } else if ("state".equals(locationDataRequest)) {
-            String heading = AppController.getInstance().getState() + " Cases";
-            tvHeading.setText(heading);
-
-        } else if ("continent".equals(locationDataRequest)) {
+        }
+         else if ("continent".equals(locationDataRequest)) {
             String heading = AppController.getInstance().getContinent() + " Cases";
             tvHeading.setText(heading);
         }

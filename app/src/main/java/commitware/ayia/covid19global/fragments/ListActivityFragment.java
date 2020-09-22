@@ -38,21 +38,21 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import commitware.ayia.covid19global.Adapter.RecyclerViewAdapter;
-import commitware.ayia.covid19global.Adapter.RecyclerViewAdapterLocal;
-import commitware.ayia.covid19global.Controllers.AppController;
+import commitware.ayia.covid19global.adapters.RecyclerViewAdapter;
+import commitware.ayia.covid19global.adapters.RecyclerViewAdapterLocal;
+import commitware.ayia.covid19global.controllers.AppController;
 import commitware.ayia.covid19global.R;
-import commitware.ayia.covid19global.data.CountriesData;
+import commitware.ayia.covid19global.repositories.CountriesData;
 import commitware.ayia.covid19global.interfaces.OnFragmentInteractionListener;
 import commitware.ayia.covid19global.interfaces.RecyclerViewClickListener;
 import commitware.ayia.covid19global.listeners.RecyclerViewTouchListener;
 import commitware.ayia.covid19global.model.CountryLocal;
 import commitware.ayia.covid19global.model.CountryServer;
 
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_TYPE_LOCAL;
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_TYPE_SERVER;
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_TYPE_SETUP;
-import static commitware.ayia.covid19global.Utils.AppUtils.NO_INFO;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_TYPE_LOCAL;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_TYPE_SERVER;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_TYPE_SETUP;
+import static commitware.ayia.covid19global.utils.AppUtils.NO_INFO;
 
 /**
  * A placeholder fragment containing a simple view.

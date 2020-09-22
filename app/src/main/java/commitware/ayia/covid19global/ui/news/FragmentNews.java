@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,9 +24,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import commitware.ayia.covid19global.Adapter.RecyclerViewAdapterNews;
+import commitware.ayia.covid19global.adapters.RecyclerViewAdapterNews;
 import commitware.ayia.covid19global.R;
-import commitware.ayia.covid19global.activities.MainActivity;
+
 import commitware.ayia.covid19global.interfaces.OnFragmentListener;
 import commitware.ayia.covid19global.interfaces.RecyclerViewClickListener;
 import commitware.ayia.covid19global.listeners.RecyclerViewTouchListener;

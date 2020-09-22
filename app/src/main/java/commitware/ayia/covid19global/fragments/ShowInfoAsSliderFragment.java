@@ -17,7 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-import commitware.ayia.covid19global.Adapter.SliderAdapter;
+import commitware.ayia.covid19global.adapters.SliderAdapter;
 import commitware.ayia.covid19global.R;
 import commitware.ayia.covid19global.interfaces.OnFragmentListenerSlider;
 import commitware.ayia.covid19global.model.Slide;

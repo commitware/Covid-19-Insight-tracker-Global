@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import commitware.ayia.covid19global.Adapter.RecyclerViewAdapterSlide;
+import commitware.ayia.covid19global.adapters.RecyclerViewAdapterSlide;
 import commitware.ayia.covid19global.R;
 import commitware.ayia.covid19global.interfaces.OnFragmentListenerSlider;
 import commitware.ayia.covid19global.model.Slide;

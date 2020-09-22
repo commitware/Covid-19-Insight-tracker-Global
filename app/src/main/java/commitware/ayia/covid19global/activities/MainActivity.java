@@ -16,11 +16,11 @@ import commitware.ayia.covid19global.R;
 import commitware.ayia.covid19global.interfaces.OnFragmentListener;
 import commitware.ayia.covid19global.model.News;
 
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_INTENT;
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_REQUEST;
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_TYPE;
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_TYPE_SERVER;
-import static commitware.ayia.covid19global.Utils.AppUtils.SLIDER_INTENT;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_INTENT;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_REQUEST;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_TYPE;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_TYPE_SERVER;
+import static commitware.ayia.covid19global.utils.AppUtils.SLIDER_INTENT;
 
 public class MainActivity extends AppCompatActivity implements OnFragmentListener {
 

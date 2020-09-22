@@ -11,7 +11,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
-        buildConfigField "String", "API_NEWS", "\"add api key here\""
+        buildConfigField "String", "API_NEWS", "YOUR API KEY"
         buildConfigField "String", "APP_TYPE", "\"covidGlobal\""
 
     }

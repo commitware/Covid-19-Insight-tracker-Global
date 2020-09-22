@@ -18,17 +18,18 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
-import commitware.ayia.covid19global.Controllers.AppController;
+import commitware.ayia.covid19global.controllers.AppController;
 
 import commitware.ayia.covid19global.interfaces.OnFragmentInteractionListener;
 import commitware.ayia.covid19global.model.CountryLocal;
 import commitware.ayia.covid19global.model.CountryServer;
 import commitware.ayia.covid19global.R;
+import commitware.ayia.covid19global.utils.ThemeController;
 
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_REQUEST;
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_TYPE;
-import static commitware.ayia.covid19global.Utils.AppUtils.LIST_TYPE_LOCAL;
-import static commitware.ayia.covid19global.Utils.AppUtils.LOCATION_COUNTRY;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_REQUEST;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_TYPE;
+import static commitware.ayia.covid19global.utils.AppUtils.LIST_TYPE_LOCAL;
+import static commitware.ayia.covid19global.utils.AppUtils.LOCATION_COUNTRY;
 
 
 public class SettingsActivity extends AppCompatActivity implements OnFragmentInteractionListener {
@@ -209,12 +210,8 @@ public class SettingsActivity extends AppCompatActivity implements OnFragmentInt
                     @Override
                     public boolean onPreferenceChange(Preference preference, Object newValue) {
 
-                        if (newValue.toString().equals("DarkTheme")) {
-                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                        } else if (newValue.toString().equals("LightTheme")) {
+                        new ThemeController(newValue.toString());
 
-                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                        }
                         return true;
                     }
                 });
