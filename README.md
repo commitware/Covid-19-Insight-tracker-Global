@@ -37,9 +37,6 @@ Change theme from light to dark mode and vice versa.
 
 Send feedback 
 
-Google drive link to apk.
-https://drive.google.com/file/d/108FC1DpBeh5b9os7oPUeRZQhbb0V-QOs/view?usp=sharing
-
 
 
 
