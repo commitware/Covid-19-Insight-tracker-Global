@@ -1,7 +1,6 @@
 # Covid19Global
 Developed May 12 2020 to May 26 2020
 
-
 REST 
 
 JSON
@@ -9,6 +8,10 @@ JSON
 VIEWMODELS
 
 Gain insights and Keep track of COVID-19 in your country, in your continent and the globe. Data is updated every 10 minutes.
+
+Download App
+
+https://github.com/commitware/Covid-19-Insight-tracker-Global/releases/download/v2.0/covid19-insight-gb.apk
 
 •	Data can still be obtained if offline.
 
