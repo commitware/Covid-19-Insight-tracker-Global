@@ -42,17 +42,19 @@ Send feedback
 
 ![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/screenshot%20(3).jpg)
 
-![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/app/src/main/res/screenshots/Screenshot_20200531_144827_commitware.ayia.covid19global.jpg)
+![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/screenshot%20(4).jpg)
 
-![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/app/src/main/res/screenshots/Screenshot_20200531_144830_commitware.ayia.covid19global.jpg)
+![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/screenshot%20(5).jpg)
 
-![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/app/src/main/res/screenshots/Screenshot_20200531_144836_commitware.ayia.covid19global.jpg)
+![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/screenshot%20(2).jpg)
 
-![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/app/src/main/res/screenshots/Screenshot_20200531_144901_commitware.ayia.covid19global.jpg)
+![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/screenshot%20(6).jpg)
 
-![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/app/src/main/res/screenshots/Screenshot_20200527_040758_commitware.ayia.covid19.jpg)
+![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/screenshot%20(1).jpg)
 
-![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/app/src/main/res/screenshots/Screenshot_20200527_040831_commitware.ayia.covid19.jpg)
+![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/screenshot%20(7).jpg)
+
+![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/screenshot%20(8).jpg)
 
 
 
