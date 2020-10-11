@@ -48,7 +48,7 @@ Send feedback
 
 ![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/screenshot%20(2).jpg)
 
-![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/screenshot%20(6).jpg)
+![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/screenshot%10(6).jpg)
 
 ![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/screenshot%20(1).jpg)
 
