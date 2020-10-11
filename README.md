@@ -1,13 +1,16 @@
 # Covid19Global
 Developed May 12 2020 to May 26 2020
 
+Gain insights and Keep track of COVID-19 in your country, in your continent and the globe. Data is updated every 10 minutes.Note information for all countries, all continents  are updated every 10 minutes. Covid 19 Insight also provides relevant information that creates awareness and helps curb the spread of the deadly disease.
+
 REST 
 
 JSON
 
 VIEWMODELS
 
-Gain insights and Keep track of COVID-19 in your country, in your continent and the globe. Data is updated every 10 minutes.
+LIVEDATA
+
 
 Download App
 
