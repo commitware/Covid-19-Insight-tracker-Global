@@ -40,9 +40,7 @@ Send feedback
 
 
 
-![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/screenshot(3))
-
-![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/app/src/main/res/screenshots/Screenshot_20200531_144825_commitware.ayia.covid19global.jpg)
+![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/screenshot%20(3).jpg)
 
 ![ScreenShot](https://github.com/commitware/Covid-19-Insight-tracker-Global/blob/master/app/src/main/res/screenshots/Screenshot_20200531_144827_commitware.ayia.covid19global.jpg)
 
