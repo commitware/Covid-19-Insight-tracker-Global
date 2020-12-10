@@ -36,6 +36,7 @@ Gives insight on covid-19. How it spreads, precautions to be taken etc.
 
 News:
 Shows news update anything related to health based on location.
+API https://newsapi.org/
 
 Settings:
 Change setting related to app behavior.  
